@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     static bool Stopped;
 
     public float playTime = 0f;
+    public float playSpeed = 1f;
 
     [Space]
     public AudioClip music;
@@ -17,6 +18,9 @@ public class Player : MonoBehaviour
 
     [Space]
     public bool muteOnDrag = true;
+
+    [Space]
+    public bool disableControls = false;
 
     Vector3[] initialPos;
     float[] moveAmounts;
@@ -44,6 +48,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (disableControls)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (Playing)
@@ -60,6 +69,8 @@ public class Player : MonoBehaviour
         {
             Stop();
         }
+
+        audioSource.pitch = playSpeed;
     }
     public void Play()
     {
@@ -114,7 +125,7 @@ public class Player : MonoBehaviour
         {
             if (Playing)
             {
-                playTime += Time.deltaTime;
+                playTime += Time.deltaTime * playSpeed;
                 for (int k = 0; k < visualizers.Length; k++)
                 {
                     visualizers[k].transform.localPosition =
