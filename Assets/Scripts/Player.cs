@@ -18,8 +18,6 @@ public class Player : MonoBehaviour
 
     [Space]
     public bool muteOnDrag = true;
-
-    [Space]
     public bool disableControls = false;
 
     Vector3[] initialPos;
@@ -167,5 +165,9 @@ public class Player : MonoBehaviour
     {
         if (muteOnDrag)
         { audioSource.volume = lastVolume; }
+    }
+    public float GetMoveAmount(int i)
+    {
+        return moveAmounts[i];
     }
 }
