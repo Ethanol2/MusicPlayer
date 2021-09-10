@@ -20,8 +20,6 @@ public class PlayerCharacter : MonoBehaviour
     public float jumpForce;
     public float movementForce;
 
-    public float songMovement;
-
     Vector3 rayLeftOffset;
     Vector3 rayCenterOffset;
     Vector3 rayRightOffset;

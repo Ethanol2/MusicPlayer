@@ -75,8 +75,6 @@ public class Visualizer : MonoBehaviour
             }
         }
 
-        //Debug.Log(simpleSamples.IndexOf(largestSample));
-
         return simpleSamples.ToArray();
     }
     float[] NthSampleSimple_PostiveSum(float[] rawSamples, int sampleNum, int spread)
@@ -127,6 +125,8 @@ public class Visualizer : MonoBehaviour
         float yAdjust2 = (maxHeight) / Mathf.Sqrt(yAdjust1 * largestSample);
 
         float i = 0;
+
+        lineTemplate.SetActive(true);
 
         foreach (float s in condensedSamples)
         {
